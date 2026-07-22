@@ -1,0 +1,82 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateTaskInput {
+  assignedUserId: String
+  description: String!
+  projectId: String!
+  status: TaskStatus = BACKLOG
+  tags: [String!] = []
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input FilterTasksInput {
+  assignedUserId: String
+  projectId: String
+  status: TaskStatus
+}
+
+type Mutation {
+  """Crea una nueva tarea"""
+  createTask(createTaskInput: CreateTaskInput!): Task!
+
+  """Elimina una tarea por su ID"""
+  removeTask(id: ID!): Boolean!
+
+  """Actualiza los atributos de una tarea"""
+  updateTask(updateTaskInput: UpdateTaskInput!): Task!
+}
+
+type Project {
+  description: String
+  id: ID!
+  name: String!
+}
+
+type Query {
+  """Obtiene una tarea por su ID"""
+  task(id: ID!): Task!
+
+  """Obtiene una lista de tareas filtradas"""
+  tasks(filter: FilterTasksInput): [Task!]!
+}
+
+type Task {
+  assignedUser: User
+  createdAt: DateTime!
+  description: String!
+  id: ID!
+  project: Project!
+  status: TaskStatus!
+  tags: [String!]!
+  title: String!
+}
+
+"""Los estados disponibles para una tarea"""
+enum TaskStatus {
+  BACKLOG
+  DONE
+  IN_PROGRESS
+  TODO
+}
+
+input UpdateTaskInput {
+  assignedUserId: String
+  description: String
+  id: ID!
+  status: TaskStatus
+  tags: [String!]
+  title: String
+}
+
+type User {
+  email: String!
+  id: ID!
+  name: String!
+}
