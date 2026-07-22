@@ -4,7 +4,7 @@ Este proyecto implementa un servidor backend para la gestión de tareas de proye
 
 ---
 
-## 🚀 Criterios de Evaluación Implementados
+## Criterios de Evaluación Implementados
 
 ### 1. Programación Orientada a Aspectos (AOP)
 Los aspectos transversales (*cross-cutting concerns*) han sido desacoplados de la lógica de negocio y encapsulados en interceptores y filtros globales dentro de la carpeta `src/common/`:
@@ -129,7 +129,7 @@ mutation {
 
 ---
 
-## 🧪 Pruebas Automatizadas y Simulación de AOP
+## Pruebas Automatizadas y Simulación de AOP
 El proyecto cuenta con un script de prueba de integración en Node.js que ejecuta todo el ciclo de vida de la API (consultar semilla, crear tarea, consultar individual, editar, eliminar y forzar una excepción controlada 404).
 
 Para correr esta simulación y ver los resultados de los aspectos en consola en tiempo real:
